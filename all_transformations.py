@@ -105,9 +105,39 @@ Concept9: Type cast in pyspark using .cast() Transformation
 df_csv_with_schema.withColumn('Item_Weight',col('Item_Weight').cast(IntegerType())).printSchema()
 
 ####################################################################################################################################
+Concept10:  .sort() Transformation
 
 
+#Scenario1:
+df_csv_with_schema.sort(col('Item_Weight').desc()).display()
 
+#Scenario2:
+df_csv_with_schema.sort(col('Item_Weight').asc()).display()
+
+#Scenario3: Sorting on Descending Order for multiple columns
+df_csv_with_schema.sort(['Item_Weight','Item_MRP'],ascending=[0,0]).display()
+
+####################################################################################################################################
+Concept 11: .limit() Transformation
+
+To get only specified number of records from dataframe we use .limit() 
+
+
+df_csv_with_schema.limit(5).display()
+####################################################################################################################################
+Concept 12 : Use of .drop() Transformation
+
+
+df_csv_with_schema.drop('Item_Visibility','Item_Weight').display()
+###################################################################################################################################
+Concept 13: Use of .dropDuplicates() Transformation
+
+Use to drop duplcate records based on all columns or some specific columns
+
+ df_csv_with_schema.dropDuplicates()
+ df_csv_with_schema.dropDuplicates(['Item_Weight','Item_Visibility'])
+
+#####################################################################################################################################
 
 
 
