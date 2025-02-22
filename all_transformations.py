@@ -45,6 +45,16 @@ df_csv_with_schema = spark.read.format("csv")\
                           .load("/FileStore/tables/BigMart_Sales.csv")
 ######################################################################################################
 
+Concept4: .select() Transformation
+
+#case1
+df_csv_with_schema.select('Item_Identifier','Item_Weight','Item_Fat_Content').display()
+
+#case2
+df_csv_with_schema.select(col('Item_Identifier'),col('Item_Weight'),col('Item_Fat_Content')).display()
+######################################################################################################
+
+
 
 
 
