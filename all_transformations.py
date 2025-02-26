@@ -139,7 +139,31 @@ Use to drop duplcate records based on all columns or some specific columns
 
 #####################################################################################################################################
 
+Concept 14: use of current_date() methods
 
+
+df_csv_with_schema.withColumn('curr_date',current_date()).display()
+####################################################################################################################################
+Concept 15: Use of date_format() Transformation
+
+df_new.withColumn("Current_date",date_format("Current_date","dd-MM-yyyy")).display()
+###################################################################################################################################
+
+Concept 16: Handling Null 
+
+Here we have two strategies 
+ a) Dropping nulls
+ b) Filling nulls
+
+Dropping Nulls:
+ Scenario1) df.dropna('all').display  -> this will drop any record having all null in the column
+ Scenario2) df.dropna('any').display -> This will drop any record having null in any of the column
+ Scenario3) df.dropna(subset = ['Outlet_Size']).display() -> this will drop those records having null in the specifc column
+
+Fill Nulls:
+ Scenario1: df.fillna('NA').display()
+ Scenario2: df.fillna('NA',subset = ['Outlet_Size']).display()
+####################################################################################################################################
 
 
 
