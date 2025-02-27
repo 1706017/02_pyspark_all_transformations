@@ -164,6 +164,31 @@ Fill Nulls:
  Scenario1: df.fillna('NA').display()
  Scenario2: df.fillna('NA',subset = ['Outlet_Size']).display()
 ####################################################################################################################################
+Date: 27th Feb 2025 
+
+Concept 17: Split and Indexing Transformation
+split and indexing syntax:
+ df.withColumn('col_name',split('col_name',' ')[1])
+ #here we have given space as our delimiter
+
+#############################################################################################################################################################################
+Concept 18: Use of explode() transformation 
 
 
+ df.withColumn('col_name',explode('col_name')).display()
+
+•  Basically the explode() function simply explode the list into new rows 
+
+
+ 
+
+df_new_v1.withColumn('Outlet_type_exploded',explode('Outlet_type_v1')).limit(5).display()
+
+#############################################################################################################################################################################
+Concept 19: Use of Group By Transformation 
+
+df_new.groupBy('Item_Type').agg(sum('Item_MRP')).display()
+ 
+
+df_new.groupBy('Item_Type','Outlet_Size').agg(sum('Item_MRP'),avg('Item_MRP')).display()
 
